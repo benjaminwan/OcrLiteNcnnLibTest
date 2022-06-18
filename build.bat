@@ -30,17 +30,17 @@ else if %flag% == 2 (
 else (echo 输入错误！Input Error!)
 echo.
 
-mkdir win-%BUILD_CMAKE_A%-%BUILD_NCNN_VULKAN%
-pushd win-%BUILD_CMAKE_A%-%BUILD_NCNN_VULKAN%
+mkdir win-%BUILD_CMAKE_A%-%BUILD_VULKAN%
+pushd win-%BUILD_CMAKE_A%-%BUILD_VULKAN%
 
 cmake -T "%BUILD_CMAKE_T%,host=x64" -A %BUILD_CMAKE_A% ^
-  -DCMAKE_INSTALL_PREFIX=install -DOCR_VULKAN=%BUILD_NCNN_VULKAN% ..
+  -DCMAKE_INSTALL_PREFIX=install -DOCR_VULKAN=%BUILD_VULKAN% ..
 cmake --build . --config %BUILD_TYPE% -j %NUMBER_OF_PROCESSORS%
 cmake --build . --config %BUILD_TYPE% --target install
 
 popd
 
-echo ========输出文件夹:win-%BUILD_CMAKE_A%-%BUILD_NCNN_VULKAN%\install========
+echo ========输出文件夹:win-%BUILD_CMAKE_A%-%BUILD_VULKAN%\install========
 echo 请运行输出文件夹内的run-test.bat脚本进行测试
 echo.
 PAUSE
